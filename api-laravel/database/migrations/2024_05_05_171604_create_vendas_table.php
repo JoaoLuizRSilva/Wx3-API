@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('data_venda');
             $table->decimal('valor_total', 10, 2);
             $table->foreignId('endereco_id')->references('id')->on('enderecos');
+            $table->foreignId('cliente_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
