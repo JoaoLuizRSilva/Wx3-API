@@ -22,7 +22,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:25',
             'descricao' => 'nullable|string',
         ]);
 
@@ -39,7 +39,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::findOrFail($id);
 
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:25',
             'descricao' => 'nullable|string',
         ]);
 

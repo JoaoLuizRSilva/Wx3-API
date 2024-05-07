@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('cor')->nullable();
-            $table->string('imagem')->nullable();
+            $table->string('imagem')->nullable(); // Armazenar a URL de onde a imagem está armazenda
             $table->decimal('preco', 8, 2);
             $table->text('descricao');
             $table->dateTime('data_cadastro');

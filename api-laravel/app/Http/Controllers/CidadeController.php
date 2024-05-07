@@ -22,7 +22,7 @@ class CidadeController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:25',
         ]);
 
         $cidade = Cidade::create([
@@ -37,7 +37,7 @@ class CidadeController extends Controller
         $cidade = Cidade::findOrFail($id);
 
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:25',
         ]);
 
         $cidade->update([

@@ -24,7 +24,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string|min:8',
             'cpf' => 'required|string|unique:users,cpf',
         ]);
 
@@ -68,28 +68,18 @@ class UserController extends Controller
         return response()->json(null, 204);
     }
 
-    /**
-     * Valida um CPF.
-     *
-     * @param string $cpf O CPF a ser validado
-     * @return bool True se o CPF for válido, false caso contrário
-     */
     private function validateCPF($cpf)
     {
-        // Remove caracteres não numéricos do CPF
         $cpf = preg_replace('/[^0-9]/', '', $cpf);
 
-        // Verifica se o CPF tem 11 dígitos
         if (strlen($cpf) != 11) {
             return false;
         }
 
-        // Verifica se todos os dígitos são iguais
         if (preg_match('/(\d)\1{10}/', $cpf)) {
             return false;
         }
 
-        // Calcula os dígitos verificadores
         for ($i = 9; $i < 11; $i++) {
             $sum = 0;
             for ($j = 0; $j < $i; $j++) {

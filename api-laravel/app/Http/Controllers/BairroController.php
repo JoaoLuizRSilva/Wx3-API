@@ -22,7 +22,7 @@ class BairroController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:65',
             'cidade_id' => 'required|exists:cidades,id',
         ]);
 
@@ -39,7 +39,7 @@ class BairroController extends Controller
         $bairro = Bairro::findOrFail($id);
 
         $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
+            'nome' => 'required|string|max:65',
             'cidade_id' => 'required|exists:cidades,id',
         ]);
 

@@ -22,7 +22,7 @@ class VariacaoDoProdutoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'tamanho' => 'required|string|max:255',
+            'tamanho' => 'required|string|max:15',
             'estoque' => 'required|integer|min:0',
             'produto_id' => 'required|exists:produtos,id',
         ]);
@@ -41,7 +41,7 @@ class VariacaoDoProdutoController extends Controller
         $variacao = VariacaoDoProduto::findOrFail($id);
 
         $validatedData = $request->validate([
-            'tamanho' => 'required|string|max:255',
+            'tamanho' => 'required|string|max:15',
             'estoque' => 'required|integer|min:0',
             'produto_id' => 'required|exists:produtos,id',
         ]);

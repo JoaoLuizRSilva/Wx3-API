@@ -22,8 +22,8 @@ class EnderecoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'cep' => 'required|string|max:255',
-            'logradouro' => 'required|string|max:255',
+            'cep' => 'required|string|max:8',
+            'logradouro' => 'required|string|max:8',
             'numero' => 'required|integer',
             'complemento' => 'nullable|string',
             'bairro_id' => 'required|exists:bairros,id',
@@ -45,8 +45,8 @@ class EnderecoController extends Controller
         $endereco = Endereco::findOrFail($id);
 
         $validatedData = $request->validate([
-            'cep' => 'required|string|max:255',
-            'logradouro' => 'required|string|max:255',
+            'cep' => 'required|string|max:8',
+            'logradouro' => 'required|string|max:8',
             'numero' => 'required|integer',
             'complemento' => 'nullable|string',
             'bairro_id' => 'required|exists:bairros,id',
