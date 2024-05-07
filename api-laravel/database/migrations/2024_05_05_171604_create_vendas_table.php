@@ -14,6 +14,7 @@ return new class extends Migration
             $table->enum('forma_pagamento', ['boleto', 'pix', 'cartao']);
             $table->dateTime('data_venda');
             $table->decimal('valor_total', 10, 2);
+            $table->foreignId('variacao_do_produto_id')->references('id')->on('variacao_do_produtos');
             $table->foreignId('endereco_id')->references('id')->on('enderecos');
             $table->foreignId('cliente_id')->references('id')->on('users');
             $table->timestamps();

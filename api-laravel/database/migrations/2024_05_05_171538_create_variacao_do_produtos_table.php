@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('tamanho');
             $table->integer('estoque');
-            $table->foreignId('produto_id')->referencs('id')->on('produtos');
+            $table->foreignId('produto_id')->references('id')->on('produtos');
+            $table->decimal('preco_venda', 10, 2);
             $table->timestamps();
         });
     }
