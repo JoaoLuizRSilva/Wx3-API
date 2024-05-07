@@ -24,12 +24,14 @@ class VariacaoDoProdutoController extends Controller
         $validatedData = $request->validate([
             'tamanho' => 'required|string|max:15',
             'estoque' => 'required|integer|min:0',
+            'preco_venda' => 'required|decimal|min:0',
             'produto_id' => 'required|exists:produtos,id',
         ]);
 
         $variacao = VariacaoDoProduto::create([
             'tamanho' => $validatedData['tamanho'],
             'estoque' => $validatedData['estoque'],
+            'preco_venda' => $validatedData['preco_venda'],
             'produto_id' => $validatedData['produto_id'],
         ]);
 
@@ -43,12 +45,14 @@ class VariacaoDoProdutoController extends Controller
         $validatedData = $request->validate([
             'tamanho' => 'required|string|max:15',
             'estoque' => 'required|integer|min:0',
+            'preco_venda' => 'required|decimal|min:0',
             'produto_id' => 'required|exists:produtos,id',
         ]);
 
         $variacao->update([
             'tamanho' => $validatedData['tamanho'],
             'estoque' => $validatedData['estoque'],
+            'preco_venda' => $validatedData['preco_venda'],
             'produto_id' => $validatedData['produto_id'],
         ]);
 
