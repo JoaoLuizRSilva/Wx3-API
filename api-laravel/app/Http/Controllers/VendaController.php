@@ -11,11 +11,6 @@ class VendaController extends Controller
     public function store(Request $request){
         $requestData = $request->all();
 
-        // Verificando se todas as chaves necessárias estão presentes nos dados recebidos
-        if (!isset($requestData['forma_pagamento']) || !isset($requestData['variacao_do_produto_id']) || !isset($requestData['endereco_id']) || !isset($requestData['cliente_id'])) {
-            return response()->json(['error' => 'Dados incompletos'], 400);
-        }
-
         $valorTotal = $this->calcularValorTotal($requestData);
         $venda = Venda::create([
             'valor_total' => $valorTotal,
